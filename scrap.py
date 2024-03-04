@@ -2,10 +2,11 @@
 #page: https://offshoreleaks.icij.org/search?q=Peru&c=&j=&d=
 
 from requests_html import HTMLSession
+import json
 
 s = HTMLSession()
 
-url = 'https://offshoreleaks.icij.org/search?q=Peru&c=&j=&d='
+url = 'https://offshoreleaks.icij.org/search?q=peru&c=&j=&d='
 
 r = s.get(url)
 
