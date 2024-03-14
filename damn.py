@@ -36,13 +36,23 @@ def extract_table_data(soup):
 
     return table_data
 
+# Contador para el número de páginas descargadas
+page_count = 0
+
 # Llamar a la función extract_table_data dentro del bucle
 while True:
     soup = getdata(url)
     table_data = extract_table_data(soup)
     if not table_data:
         break
+    
+    page_count += 1  # Incrementar el contador de página
+    print(f"Página {page_count} descargada.")
+
     with open('table_data.json', 'a') as json_file:
         json.dump(table_data, json_file, indent=4)  # Exportar los datos de la tabla como JSON
         json_file.write('\n')
+
     url = getnextpage(soup)
+
+print("Descarga completa.")
