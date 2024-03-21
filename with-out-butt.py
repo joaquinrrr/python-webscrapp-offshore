@@ -30,7 +30,7 @@ def extract_table_data(soup):
             header = headers[index]
             if link is not None:
                 row_data[header] = link.text.strip()
-                
+
                 if link['href'].startswith('https://www.icij.org'):
                     row_data[header + ' link'] = link['href']
                 else:
